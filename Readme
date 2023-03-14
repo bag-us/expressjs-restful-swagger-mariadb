@@ -1,0 +1,38 @@
+Prerequisite
+1. express (framework)
+2. nodemon (autostart) 
+3. morgan (logging) 
+4. bodyParser (JSON, x-www-form-urlencoded, text/plain)
+5. mariadb (database)
+6. sequelize (ORM)
+7. multer (manage file)
+8. express-basic-auth (authentication)
+9. Helmet (HTTP header security)
+10. axios (fetching data)
+11. swagger-ui-express (api documentation)
+
+"Flow Code 1"
+1. config/database/mariadb.js (connect database via pool)
+2. routes/mobil.js (without controller)
+3. server.js {const mobilRoute = require("./routes/mobil")}
+
+"Flow Code 2"
+1. config/database/mariadb-orm.js (connect database via sequelize)
+2. config/model/mobil.js (modeling table mobil)
+3. controller/mobil.js (basic CRUD)
+4. controller/mobil-v2.js (advanced CRUD)
+5. routes/mobil-orm.js (with upload file via multer)
+6. server.js {const mobilRoute = require("./routes/mobil-orm")}
+7. apidocs/mobil.json (swagger reference : controller/mobil-v2.js)
+
+"Flow Code 3"
+1. controller/axios.js (CRUD public API)
+2. routes/axios.js (just routing)
+3. server.js {const axiosRoute = require("./routes/axios")}
+
+"Flow Code 4"
+1. config/database/mariadb-orm.js (connect database via sequelize)
+2. config/model/owner.js (modeling table brand)
+3. controller/owner.js (Bulk CRUD & Pagination with sequelize)
+4. routes/owner.js (with example)
+5. server.js {const ownerRoute = require("./routes/owner")}

@@ -1,0 +1,78 @@
+{
+    "openapi":"3.0.2",
+    "info": {
+      "title":"API Mobil",
+      "version":"1.0.0"
+    },
+    "servers": [
+      {"url":"http://localhost:6060"}
+    ],
+    "paths": {
+        "/mobil":{
+            "get":{
+                "summary": "Get all product",
+                "responses": {
+                    "200":{
+                        "description": "Success get all product"
+                    }
+                }
+            },
+            "post":{
+                "summary": "Create New Product",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "multipart/form-data" :{
+                            "schema":{
+                                "type": "object",
+                                "required": [
+                                    "brand",
+                                    "type",
+                                    "photo"
+                                ],
+                                "properties": {
+                                    "brand":{
+                                        "type": "string"
+                                    },
+                                    "type":{
+                                        "type": "string"
+                                    },
+                                    "photo":{
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Sucess create new product"
+                    }
+                }
+            }
+        },
+        "/mobil/{id}":{
+            "get":{
+                "summary": "Get data by id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "Kode Mobil"
+                    }
+                ],
+                "responses": {
+                    "201":{
+                        "description": "Success get the product"
+                    }
+                }
+            }
+        }
+    }
+  }
